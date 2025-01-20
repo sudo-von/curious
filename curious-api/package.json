@@ -1,7 +1,7 @@
 {
-  "name": "questions-api",
+  "name": "curious-api",
   "version": "1.0.0",
-  "description": "A GraphQL API for managing questions.",
+  "description": "A GraphQL API for managing the curious website.",
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/sudo-von/curious.git"
   },
   "keywords": [
-    "questions-api",
+    "curious-api",
     "von"
   ],
   "author": "Jesús Ángel 'VoN' Rodríguez Martínez",
