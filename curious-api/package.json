@@ -38,7 +38,9 @@
     "@apollo/server": "^4.11.3",
     "cors": "^2.8.5",
     "express": "^4.21.2",
-    "graphql": "^16.10.0"
+    "graphql": "^16.10.0",
+    "sequelize": "^6.37.5",
+    "sqlite3": "^5.1.7"
   },
   "engines": {
     "node": "22.13.0"
