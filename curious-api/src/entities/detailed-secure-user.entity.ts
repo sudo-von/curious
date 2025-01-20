@@ -1,3 +1,3 @@
-import { DetailedUser } from './detailed-user.model';
+import { DetailedUser } from './detailed-user.entity';
 
 export type DetailedSecureUser = Omit<DetailedUser, 'password'>;
