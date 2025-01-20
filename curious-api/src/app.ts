@@ -1,5 +1,5 @@
 import express from 'express';
-import { ENVIRONMENT_VARIABLES } from './config/environment-variables';
+import { ENVIRONMENT_VARIABLES } from './configurations/environment-variables';
 
 const app = express();
 const { port } = ENVIRONMENT_VARIABLES;
