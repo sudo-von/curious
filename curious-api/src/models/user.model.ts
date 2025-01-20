@@ -1,12 +1,11 @@
 export type User = {
+  avatar: string;
   id: string;
   name: string;
   password: string;
   username: string;
 };
 
-export type CreateUser = Omit<User, 'id'>;
+export type CreateUser = Omit<User, 'avatar' | 'id'>;
 
-export type UpdateUser = Omit<User, 'id'>;
-
-export type SecureUser = Omit<User, 'password'>;
+export type UpdateUser = Pick<User, 'avatar' | 'name'>;
