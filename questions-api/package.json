@@ -1,0 +1,45 @@
+{
+  "name": "questions-api",
+  "version": "1.0.0",
+  "description": "A GraphQL API for managing questions.",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint",
+    "start:development": "ts-node-dev --respawn src/app.ts",
+    "start:production": "npm run build && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudo-von/curious.git"
+  },
+  "keywords": [
+    "questions-api",
+    "von"
+  ],
+  "author": "Jesús Ángel 'VoN' Rodríguez Martínez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudo-von/curious/issues"
+  },
+  "homepage": "https://github.com/sudo-von/curious#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0"
+  },
+  "engines": {
+    "node": "22.13.0"
+  }
+}
