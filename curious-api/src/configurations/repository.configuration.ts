@@ -1,9 +1,9 @@
-import { Sequelize } from 'sequelize';
 import path from 'path';
+import { Sequelize } from 'sequelize';
 
 const storage = path.join(process.cwd(), 'data', 'database.sqlite');
 
-export const database = new Sequelize({
+export const repository = new Sequelize({
   dialect: 'sqlite',
   storage,
 });
