@@ -8,6 +8,6 @@ type User {
 }
 
 type Query {
-  getUserById(id: String!): User
+  getUserById(id: ID!): User
   getUserByUsername(username: String!): User
 }
