@@ -1,9 +1,24 @@
-import express from 'express';
-import { ENVIRONMENT_VARIABLES } from './configurations/environment-variables';
+import { ENVIRONMENT_VARIABLES } from './configurations/environment-variables.configuration';
+import { sequelize } from './configurations/repository.configuration';
+import './databases/models/associations.repository';
+import { server } from './configurations/graphql.configuration';
+import { app } from './configurations/express.configuration';
+import { expressMiddleware } from '@apollo/server/express4';
 
-const app = express();
 const { port } = ENVIRONMENT_VARIABLES;
 
-app.get('/', (_req, res) => res.send({ message: 'Hello curious' }));
+const bootstrap = async () => {
+  try {
+    await sequelize.authenticate();
+    await sequelize.sync({ force: false });
+    await server.start();
 
-app.listen(port, () => console.log(`Listening at localhost:${port}`));
+    app.use('/graphql', expressMiddleware(server));
+    app.listen(port, () => console.log(`📡 Listening at localhost:${port}`));
+  } catch (error) {
+    console.error('❌ Oops! Bootstrap process failed.', error);
+    process.exit(1);
+  }
+};
+
+bootstrap();
