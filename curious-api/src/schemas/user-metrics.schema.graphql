@@ -1,0 +1,5 @@
+type UserMetrics {
+  answers: Int!
+  questions: Int!
+  views: Int!
+}

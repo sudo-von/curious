@@ -1,0 +1,13 @@
+type User {
+  avatar: String!
+  details: UserDetails
+  id: ID!
+  metrics: UserMetrics
+  name: String!
+  username: String!
+}
+
+type Query {
+  getUserById(id: String!): User
+  getUserByUsername(username: String!): User
+}
