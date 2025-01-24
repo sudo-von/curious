@@ -1,11 +1,11 @@
-import { UserDetailsDto } from "./user-details.dto";
-import { UserMetricsDto } from "./user-metrics.dto";
-
 export type UserDto = {
   avatar: string;
-  details: UserDetailsDto;
   id: string;
-  metrics: UserMetricsDto;
   name: string;
+  password: string;
   username: string;
 };
+
+export type CreateUserDto = Omit<UserDto, 'avatar' | 'id'>;
+
+export type UpdateUserDto = Omit<UserDto, 'avatar' | 'id'>;
