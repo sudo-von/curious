@@ -1,75 +1,34 @@
 import { UserDto } from "@controllers/dtos/user.dto"
-import { UserDetailsModel } from "@databases/models/user-details.model";
-import { UserMetricsModel } from "@databases/models/user-metrics.model";
-import { UserModel } from "@databases/models/user.model"
+import { detailedSecureUserToUserDto } from "@mappers/user.mappers";
+import { UserService } from "src/services/user.service";
 
-export const getUserById = async (_context: object, { id }: { id: string }): Promise<UserDto | null> => {
-  const user = await UserModel.findByPk(id, {
-    include: [
-      {
-        model: UserDetailsModel,
-        as: 'details',
-      },
-      {
-        model: UserMetricsModel,
-        as: 'metrics'
-      }
-    ]
-  });
+type GetUserByIdQueryArgs = {
+  id: string;
+};
 
-  if (!user) return null;
+type GetUserByUsernameQueryArgs = {
+  username: string;
+};
 
-  const userDto: UserDto = {
-    avatar: user.avatar,
-    details: user.details && {
-      biography: user.details?.biography,
-    },
-    id: user.id,
-    metrics: user.metrics && {
-      answers: user.metrics?.answers,
-      questions: user.metrics?.questions,
-      views: user.metrics?.views,
-    },
-    name: user.name,
-    username: user.username,
-  }
+type GetUserByIdQuery = (context: object, args: GetUserByIdQueryArgs) => Promise<UserDto | null>;
+type GetUserByUsernameQuery = (context: object, args: GetUserByUsernameQueryArgs) => Promise<UserDto | null>;
 
-  return userDto;
-}
+export const getUserById: GetUserByIdQuery = async (_context, args) => {
+  const { id } = args;
 
-export const getUserByUsername = async (_context: object, { username }: { username: string }): Promise<UserDto | null> => {
-  const user = await UserModel.findOne({
-    where: {
-      username,
-    },
-    include: [
-      {
-        model: UserDetailsModel,
-        as: 'details',
-      },
-      {
-        model: UserMetricsModel,
-        as: 'metrics'
-      },
-    ]
-  });
+  const userService = new UserService();
 
-  if (!user) return null;
+  const detailedSecureUser = await userService.getUserById(id);
 
-  const userDto: UserDto = {
-    avatar: user.avatar,
-    details: user.details && {
-      biography: user.details?.biography,
-    },
-    id: user.id,
-    metrics: user.metrics && {
-      answers: user.metrics?.answers,
-      questions: user.metrics?.questions,
-      views: user.metrics?.views,
-    },
-    name: user.name,
-    username: user.username,
-  }
+  return detailedSecureUserToUserDto(detailedSecureUser);
+};
 
-  return userDto;
-}
+export const getUserByUsername: GetUserByUsernameQuery = async (_context, args) => {
+  const { username } = args;
+
+  const userService = new UserService();
+
+  const detailedSecureUser = await userService.getUserByUsername(username);
+
+  return detailedSecureUserToUserDto(detailedSecureUser);
+};
