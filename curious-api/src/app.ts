@@ -1,8 +1,8 @@
-import { ENVIRONMENT_VARIABLES } from './configurations/environment-variables.configuration';
-import { sequelize } from './configurations/repository.configuration';
-import './databases/models/associations.repository';
-import { server } from './configurations/graphql.configuration';
-import { app } from './configurations/express.configuration';
+import { ENVIRONMENT_VARIABLES } from '@configurations/environment-variables.configuration';
+import { sequelize } from '@configurations/repository.configuration';
+import '@databases/models/associations.repository';
+import { server } from '@configurations/graphql.configuration';
+import { app } from '@configurations/express.configuration';
 import { expressMiddleware } from '@apollo/server/express4';
 
 const { port } = ENVIRONMENT_VARIABLES;

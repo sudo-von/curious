@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@configurations/*": ["src/configurations/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@databases/*": ["src/databases/*"],
+      "@entities/*": ["src/entities/*"],
+      "@libraries/*": ["src/libraries/*"]
+    }
   },
   "lib": ["es2015"]
 }

@@ -1,7 +1,7 @@
-import { UserDto } from "../../../../controllers/dtos/user.dto"
-import { UserDetailsModel } from "../../../../databases/models/user-details.model";
-import { UserMetricsModel } from "../../../../databases/models/user-metrics.model";
-import { UserModel } from "../../../../databases/models/user.model"
+import { UserDto } from "@controllers/dtos/user.dto"
+import { UserDetailsModel } from "@databases/models/user-details.model";
+import { UserMetricsModel } from "@databases/models/user-metrics.model";
+import { UserModel } from "@databases/models/user.model"
 
 export const getUserById = async (_context: object, { id }: { id: string }): Promise<UserDto | null> => {
   const user = await UserModel.findByPk(id, {

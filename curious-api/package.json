@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint",
-    "start:development": "ts-node-dev --respawn src/app.ts",
+    "start:development": "ts-node-dev -r tsconfig-paths/register --respawn src/app.ts",
     "start:production": "npm run build && node dist/app.js"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "eslint": "^9.18.0",
     "globals": "^15.14.0",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
   },

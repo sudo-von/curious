@@ -6,7 +6,7 @@ import {
   InferCreationAttributes,
   Model,
 } from 'sequelize';
-import { sequelize } from '../../configurations/repository.configuration';
+import { sequelize } from '@configurations/repository.configuration';
 import { UserModel } from './user.model';
 
 type UserMetricsModelAttributes = InferAttributes<UserMetricsModel>;
