@@ -7,9 +7,9 @@ import {
   Model,
   NonAttribute,
 } from 'sequelize';
-import { UserDetailsModel } from './user-details.model';
-import { UserMetricsModel } from './user-metrics.model';
-import { sequelize } from '@configurations/repository.configuration';
+import { UserDetailsModel } from '@databases/models/user-details.model';
+import { UserMetricsModel } from '@databases/models/user-metrics.model';
+import { sequelize } from '@configurations/databases.configuration';
 
 type UserModelAttributes = InferAttributes<UserModel, UserModelOmittedAttributes>;
 type UserModelCreationalAttributes = InferCreationAttributes<UserModel, UserModelOmittedAttributes>;
