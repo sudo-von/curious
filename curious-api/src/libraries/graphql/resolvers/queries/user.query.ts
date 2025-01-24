@@ -14,21 +14,33 @@ type GetUserByIdQuery = (context: object, args: GetUserByIdQueryArgs) => Promise
 type GetUserByUsernameQuery = (context: object, args: GetUserByUsernameQueryArgs) => Promise<UserDto | null>;
 
 export const getUserById: GetUserByIdQuery = async (_context, args) => {
-  const { id } = args;
+  try {
+    const { id } = args;
 
-  const userService = new UserService();
+    const userService = new UserService();
 
-  const detailedSecureUser = await userService.getUserById(id);
+    const detailedSecureUser = await userService.getUserById(id);
+    if (!detailedSecureUser) return null;
 
-  return detailedSecureUserToUserDto(detailedSecureUser);
+    return detailedSecureUserToUserDto(detailedSecureUser);
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 };
 
 export const getUserByUsername: GetUserByUsernameQuery = async (_context, args) => {
-  const { username } = args;
+  try {
+    const { username } = args;
 
-  const userService = new UserService();
+    const userService = new UserService();
 
-  const detailedSecureUser = await userService.getUserByUsername(username);
+    const detailedSecureUser = await userService.getUserByUsername(username);
+    if (!detailedSecureUser) return null;
 
-  return detailedSecureUserToUserDto(detailedSecureUser);
+    return detailedSecureUserToUserDto(detailedSecureUser);
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 };
