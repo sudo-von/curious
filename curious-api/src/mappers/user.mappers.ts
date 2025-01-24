@@ -1,8 +1,8 @@
 import { UserDto } from "@controllers/dtos/user.dto";
 import { UserModel } from "@databases/models/user.model";
-import { DetailedSecureUser } from "@entities/detailed-secure-user.entity";
+import { SecureUser } from "@entities/secure-user.entity";
 
-const detailedSecureUserToUserDto = (detailedSecureUser: DetailedSecureUser): UserDto => ({
+const detailedSecureUserToUserDto = (detailedSecureUser: SecureUser): UserDto => ({
   avatar: detailedSecureUser.avatar,
   details: detailedSecureUser.details && {
     biography: detailedSecureUser.details.biography,
@@ -17,7 +17,7 @@ const detailedSecureUserToUserDto = (detailedSecureUser: DetailedSecureUser): Us
   username: detailedSecureUser.username,
 });
 
-const userModelToDetailedSecureUser = (userModel: UserModel): DetailedSecureUser => ({
+const userModelToDetailedSecureUser = (userModel: UserModel): SecureUser => ({
   avatar: userModel.avatar,
   details: userModel.details && {
     biography: userModel.details.biography,

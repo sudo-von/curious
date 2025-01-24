@@ -3,3 +3,7 @@ export type UserMetrics = {
   questions: number;
   views: number;
 };
+
+export type CreateUserMetrics = UserMetrics;
+
+export type UpdateUserMetrics = UserMetrics;
