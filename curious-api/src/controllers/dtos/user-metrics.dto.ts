@@ -3,3 +3,7 @@ export type UserMetricsDto = {
   questions: number;
   views: number;
 };
+
+export type CreateUserMetricsDto = UserMetricsDto;
+
+export type UpdateUserMetricsDto = UserMetricsDto;

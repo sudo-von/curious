@@ -2,7 +2,6 @@ export type UserDto = {
   avatar: string;
   id: string;
   name: string;
-  password: string;
   username: string;
 };
 
