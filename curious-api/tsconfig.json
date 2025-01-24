@@ -12,7 +12,8 @@
       "@controllers/*": ["src/controllers/*"],
       "@databases/*": ["src/databases/*"],
       "@entities/*": ["src/entities/*"],
-      "@libraries/*": ["src/libraries/*"]
+      "@libraries/*": ["src/libraries/*"],
+      "@mappers/*": ["src/mappers/*"]
     }
   },
   "lib": ["es2015"]
